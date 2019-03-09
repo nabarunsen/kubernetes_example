@@ -51,10 +51,10 @@ node {
                 println "Docker Framework Build"
                 docker.build(tagName)
                 println "Docker pushing -->" + tagName + " To " + REPO
-                buildInfo = rtDocker.push(tagName, REPO, buildInfo)
+                /*buildInfo = rtDocker.push(tagName, REPO, buildInfo)
                 docker push docker-repo:8081/REPO/docker-framework:${env.BUILD_NUMBER}
                 println "Docker Buildinfo"
-                rtServer.publishBuildInfo buildInfo
+                rtServer.publishBuildInfo buildInfo*/
 
         }
     }
