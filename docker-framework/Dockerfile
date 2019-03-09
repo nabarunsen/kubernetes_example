@@ -1,4 +1,4 @@
-FROM docker-repo:8081/docker-repo/ubuntu:latest
+FROM docker-repo:8081/docker/ubuntu:latest
 
 MAINTAINER Nabarun Sen nabarun.sen@gmail.com
 
