@@ -47,12 +47,12 @@ node {
     stage('Build') {
         dir ('docker-framework') {
                 //sh "sed -i 's/docker-repo:8081/${ARTDOCKER_REGISTRY}/' Dockerfile"
-            //tagName = "${ARTDOCKER_REGISTRY}/REPO/docker-framework:${env.BUILD_NUMBER}"
+            tagName = "${ARTDOCKER_REGISTRY}/${REPO}/docker-framework:${env.BUILD_NUMBER}"
                 println "Docker Framework Build"
                 docker.build(tagName)
                 println "Docker pushing -->" + tagName + " To " + REPO
                 //buildInfo = rtDocker.push(tagName, REPO, buildInfo)
-                docker push docker-repo:8081/docker/ocker-framework:${env.BUILD_NUMBER}
+            docker push docker-repo:8081/${REPO}/docker-framework:${env.BUILD_NUMBER}
                 println "Docker Buildinfo"
                 rtServer.publishBuildInfo buildInfo
 
