@@ -1,8 +1,8 @@
-FROM docker.artifactory/docker-framework:latest
+FROM docker-repo:8081/docker-framework:latest
 
-MAINTAINER Jainish Shah jainishs@jfrog.com
+MAINTAINER Nabarun Sen nabarun.sen@gmail.com
 
-RUN rm -rf /home/exec/apache-tomcat-8.0.32/webapps/*
+RUN rm -rf /home/exec/apache-tomcat-8.5.38/webapps/*
 
-ADD war/*.war /home/exec/apache-tomcat-8.0.32/webapps/ROOT.war
-CMD /bin/bash -c cd /home/exec; /home/exec/apache-tomcat-8.0.32/bin/catalina.sh run
+ADD war/*.war /home/exec/apache-tomcat-8.5.38/webapps/ROOT.war
+CMD /bin/bash -c cd /home/exec; /home/exec/apache-tomcat-8.5.38/bin/catalina.sh run
