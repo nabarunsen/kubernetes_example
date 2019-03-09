@@ -7,7 +7,7 @@
           "$and": [
             {
               "path": {"$match": "java"},
-              "name": {"$match": "jdk-8u91-linux-x64.tar.gz"},
+              "name": {"$match": "jdk-8u201-linux-x64.tar"},
               "property.key" : {"$match" : "*.alert.topSeverity"},
               "property.value" : {"$ne" : "Critical"}
             }
@@ -24,12 +24,12 @@
           "$and": [
             {
               "path": {"$match": "org/apache/apache-tomcat"},
-              "name": {"$match": "apache-tomcat-8.0.32.tar.gz"}
+              "name": {"$match": "apache-tomcat-8.5.38.tar"}
             }
           ]
         }
       },
-      "target": "tomcat/apache-tomcat-8.tar.gz",
+      "target": "tomcat/apache-tomcat-8.5.38.tar",
       "flat": "true"
     }
   ]
