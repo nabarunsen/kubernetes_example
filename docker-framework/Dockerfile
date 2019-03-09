@@ -2,7 +2,7 @@ FROM docker-repo:8081/docker-repo/ubuntu:latest
 
 MAINTAINER Nabarun Sen nabarun.sen@gmail.com
 
-RUN mkdir -p /home/exec/jdk8 /home/exec/tomcat
+RUN mkdir -p /home/exec/jdk /home/exec/tomcat
 
 COPY jdk/jdk-8u201-linux-x64.tar /home/exec/
 RUN cd /home/exec/ && tar -xvf /home/exec/jdk-8u201-linux-x64.tar
