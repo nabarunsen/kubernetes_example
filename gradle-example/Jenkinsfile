@@ -4,7 +4,7 @@ node {
 
     //Clone example code from GitHub repository
     stage 'Build'
-        git url: 'https://github.com/jfrogtraining/kubernetes_example.git', branch: 'master'
+        git url: 'https://github.com/nabarunsen/kubernetes_example.git', branch: 'master'
 
     //Configure Artifactroy repository to pull/push artifacts
     stage 'Artifactory configuration'
