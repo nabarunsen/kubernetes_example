@@ -46,10 +46,9 @@ node {
     //Build docker image named "docker-framework" with Java 8 and Tomcat
     stage('Build') {
         dir ('docker-framework') {
-                sh "sed -i 's/docker-repo:8081/${ARTDOCKER_REGISTRY}/' Dockerfile"
                 tagName = "${ARTDOCKER_REGISTRY}/REPO/docker-framework:${env.BUILD_NUMBER}"
                 println "Docker Framework Build"
-                sh "docker tag $tagName ${ARTDOCKER_REGISTRY}/REPO/docker-framework:${env.BUILD_NUMBER}"
+                sh "docker tag $tagName ${ARTDOCKER_REGISTRY}/REPO/docker-framework:latest}"
                 sh "docker build -t $tagName"
                 sh "docker push docker-repo:8081/REPO/docker-framework:${env.BUILD_NUMBER}"
                 println "Docker Buildinfo"
@@ -127,7 +126,7 @@ node {
 def updateDockerFile () {
     def BUILD_NUMBER = env.BUILD_NUMBER
     //sh "sed -i 's/docker-repo:8081/${ARTDOCKER_REGISTRY}/' Dockerfile"
-    sh 'sed -i "s/docker-framework:latest/docker-framework:$BUILD_NUMBER/" Dockerfile'
+   // sh 'sed -i "s/docker-framework:latest/docker-framework:$BUILD_NUMBER/" Dockerfile'
 }
 
 def reTagLatest (targetRepo) {
