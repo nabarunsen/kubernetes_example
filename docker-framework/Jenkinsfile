@@ -17,12 +17,12 @@ node {
                 def downloadSpec = """{
                          "files": [
                           {
-                           "pattern": "tomcat-local/java/jdk-8u201-linux-x64.tar",
+                           "pattern": "tomcat-local/jdk-8u201-linux-x64.tar",
                            "target": "jdk/jdk-8u201-linux-x64.tar",
                            "flat":"true"
                           },
                           {
-                           "pattern": "tomcat-local/org/apache/apache-tomcat/apache-tomcat-8.5.38.tar",
+                           "pattern": "tomcat-local/apache-tomcat-8.5.38.tar",
                            "target": "tomcat/apache-tomcat-8.5.38.tar",
                            "flat":"true"
                           }
