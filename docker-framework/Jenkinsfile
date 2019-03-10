@@ -46,17 +46,14 @@ node {
     //Build docker image named "docker-framework" with Java 8 and Tomcat
     stage('Build') {
         dir ('docker-framework') {
-                OLDSTR="docker.artifactory"
-                NEWSTR="docker-repo:8081/docker"
-                sh "sed -i 's/${OLDSTR}/${NEWSTR}/' Dockerfile"
-                tagName = "${ARTDOCKER_REGISTRY}/${REPO}/docker-framework:${env.BUILD_NUMBER}"
+                sh "sed -i 's/docker.artifactory/${ARTDOCKER_REGISTRY}/' Dockerfile"
+                tagName = "${ARTDOCKER_REGISTRY}/docker-framework:${env.BUILD_NUMBER}"
                 println "Docker Framework Build"
                 docker.build(tagName)
                 println "Docker pushing -->" + tagName + " To " + REPO
                 buildInfo = rtDocker.push(tagName, REPO, buildInfo)
                 println "Docker Buildinfo"
                 rtServer.publishBuildInfo buildInfo
-
         }
     }
     //Test docker image
