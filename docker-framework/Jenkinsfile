@@ -126,8 +126,8 @@ node {
 
 def updateDockerFile () {
     def BUILD_NUMBER = env.BUILD_NUMBER
-    sh "sed -i 's/docker.artifactory/${ARTDOCKER_REGISTRY}/' Dockerfile"
-    sh 'sed -i "s/docker-framework:latest/docker-framework:$BUILD_NUMBER/" Dockerfile'
+    //sh "sed -i 's/docker.artifactory/${ARTDOCKER_REGISTRY}/' Dockerfile"
+    //sh 'sed -i "s/docker-framework:latest/docker-framework:$BUILD_NUMBER/" Dockerfile'
 }
 
 def reTagLatest (targetRepo) {
