@@ -1,4 +1,4 @@
-FROM docker-repo:8081/docker-framework:latest
+FROM docker-repo:8081/docker/docker-framework:latest
 
 MAINTAINER Nabarun Sen nabarun.sen@gmail.com
 
