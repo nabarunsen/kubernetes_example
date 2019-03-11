@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        WORKSPACE="/var/lib/jenkins/workspace/gradle-framework"
+        WORKSPACE="/var/lib/jenkins/workspace/gradle-framework/docker-framework"
     }
     stages {
         stage('Git Clone') {
