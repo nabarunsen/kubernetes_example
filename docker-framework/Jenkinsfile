@@ -11,19 +11,19 @@ pipeline {
    stages {
             stage('Git clone and setup') {
 
-             steps {
-                        echo "Check out Git Repo using Master Branch"
-                        git branch: "master",
-                        credentialsId: 'nabarunsen',
-                        url: 'https://github.com/nabarunsen/kubernetes_example.git'
-                        echo "WORKSPACE is ${WORKSPACE}"
-                }
+                 steps {
+                     echo "Check out Git Repo using Master Branch"
+                     git branch: "master",
+                     credentialsId: 'nabarunsen',
+                     url: 'https://github.com/nabarunsen/kubernetes_example.git'
+                     echo "WORKSPACE is ${WORKSPACE}"
+                 }
 
-                steps('Build the Docker Images') {
-                        cd ${WORKSPACE}
-                        echo "Building application and Docker image"
-                        sh "${WORKSPACE}/build.sh"
-                }
+                 steps('Build the Docker Images') {
+                     cd ${WORKSPACE}
+                     echo "Building application and Docker image"
+                     sh "${WORKSPACE}/build.sh"
+                 }
              }
    }
 }
