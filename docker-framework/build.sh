@@ -27,11 +27,11 @@
         echo "Docker registry not set. Skipping"
     fi
  
-    echo -e "\nBuilding ${DOCKER_REPO}/docker-framework:${env.BUILD_NUMBER} and pushing to the docker registry"
+    echo -e "\nBuilding ${DOCKER_REPO}/docker-framework:latest and pushing to the docker registry"
     curl -u ${DOCKER_USR}:${DOCKER_PSW} $ARTFACTORY_URL/tomcat/apache-tomcat-8.0.32.tar -o $BUILD_DIR/apache-tomcat-8.0.32.tar.gz           
     curl -u ${DOCKER_USR}:${DOCKER_PSW} $ARTFACTORY_URL/tomcat/jdk-8u91-linux-x64.tar -o $BUILD_DIR/jdk-8u91-linux-x64.tar                           
-    docker build -t ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:${env.BUILD_NUMBER} ${WORKSPACE} || errorExit "Building ${DOCKER_REPO}/${DOCKER_REPO}/docker-framework:${DOCKER_TAG} failed"           
-    docker tag ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:${env.BUILD_NUMBER} ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:latest          
+    docker build -t ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:latest ${WORKSPACE} || errorExit "Building ${DOCKER_REPO}/${DOCKER_REPO}/docker-framework:${DOCKER_TAG} failed"           
+    docker tag ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:latest ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:latest          
     docker push ${DOCKER_REG}/${DOCKER_REPO}/docker-framework:latest
  
     
