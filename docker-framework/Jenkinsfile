@@ -8,9 +8,9 @@ pipeline {
     environment {
         WORKSPACE="/var/lib/jenkins/gradle-framework"
     }
-   stages {
-            stage('Git clone and setup') {
-
+ 
+    stage {
+             stage('Git clone and setup') {
                  steps {
                      echo "Check out Git Repo using Master Branch"
                      git branch: "master",
@@ -18,12 +18,11 @@ pipeline {
                      url: 'https://github.com/nabarunsen/kubernetes_example.git'
                      echo "WORKSPACE is ${WORKSPACE}"
                  }
-
                  steps('Build the Docker Images') {
                      cd ${WORKSPACE}
                      echo "Building application and Docker image"
                      sh "${WORKSPACE}/build.sh"
                  }
              }
-   }
+     }
 }
