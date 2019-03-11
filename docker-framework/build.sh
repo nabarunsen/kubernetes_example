@@ -8,7 +8,7 @@
     DOCKER_PSW=${DOCKER_PSW:-password}
     GRADLE_REPO=${gradle-release}
     DOCKER_REPO=${DOCKER_REPO:-docker}
-    WORKSPACE="/var/lib/jenkins/gradle-framework"
+    WORKSPACE="/var/lib/jenkins/workspace/docker-framework/docker-framework"
     ARTFACTORY_URL=${ARTFACTORY_URL:-http://172.31.8.155:8081/artifactory}
  
                
