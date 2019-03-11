@@ -14,8 +14,8 @@ pipeline {
 	           }
         }
         stage('Build') {
-	           steps {
-	              cd ${WORKSPACE}
+	    steps {
+	       sh "cd ${WORKSPACE}"
                echo "Building application and Docker image"
                sh "${WORKSPACE}/build.sh"
        	    }
