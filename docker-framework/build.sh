@@ -69,7 +69,7 @@ main () {
    
         buildDockerImage
         dockerLogin
-        pushDockerImage
+        buildProdDockerImage
     
 
 }
