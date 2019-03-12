@@ -9,7 +9,7 @@ DOCKER_STAGE_REPO=${DOCKER_STAGE_REPO:-docker-stage-local}
 DOCKER_PROD_REPO=${DOCKER_PROD_REPO:-docker-prod-local}
 DOCKER_TAG={$DOCKER_TAG:-docker-framework}
 WORKSPACE="/var/lib/jenkins/workspace/docker-framework/docker-framework"
-ARTFACTORY_URL=${ARTFACTORY_URL:-http://172.31.8.155:8081/artifactory}
+ARTFACTORY_URL=${ARTFACTORY_URL:-http://172.31.9.131:8081/artifactory}
 TOMCAT_REPO=${TOMCAT_REPO:-tomcat}
 
 errorExit () {
