@@ -11,7 +11,7 @@ pipeline {
                credentialsId: 'nabarunsen',
                url: 'https://github.com/nabarunsen/kubernetes_example.git'
                echo "WORKSPACE is ${WORKSPACE}"           
-	           }
+	   }
         }
         stage('Build and Push') {
 	    steps {
@@ -20,6 +20,6 @@ pipeline {
                sh "${WORKSPACE}/build.sh --build"
        	    }
 
-         }
+        }
      }
 }
