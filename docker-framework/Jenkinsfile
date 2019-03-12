@@ -25,6 +25,7 @@ pipeline {
 	    steps {
 	       sh "cd ${WORKSPACE}"
 	       sh "${WORKSPACE}/build.sh --push"
+	    }
 	}
      }
 }
