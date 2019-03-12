@@ -32,7 +32,7 @@ dockerLogin () {
 
 # Build Docker images
 buildDockerImage () {
-
+      cd ${WORKSPACE}
       echo -e "\nBuilding ${DOCKER_REPO}/${DOCKER_TAG}:latest and pushing to the docker registry"
       echo -e "\n"
       
@@ -51,6 +51,7 @@ buildDockerImage () {
 
 # Push Docker images
 buildProdDockerImage () {
+      cd ${WORKSPACE}
       docker tag ${DOCKER_REG}/${DOCKER_STAGE_REPO}/docker-framework:latest  ${DOCKER_REG}/${DOCKER_PROD_REPO}/${DOCKER_TAG}:latest
       docker push ${DOCKER_REG}/${DOCKER_PROD_REPO}/${DOCKER_TAG}:latest || errorExit "Pushing ${DOCKER_REPO}:${DOCKER_TAG} failed"
 }
