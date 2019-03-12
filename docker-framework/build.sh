@@ -17,23 +17,6 @@ errorExit () {
       exit 1
 }
 
-usage () {
-      cat << END_USAGE
-
-      ${SCRIPT_NAME} - Script for building the Gradle-Build web application in Ubuntu, Tomcat Container with Docker image and Kubernetes Helm chart
-
-      Usage: ./${SCRIPT_NAME} <options>
-
-      --build             : [optional] Build the Docker image
-      --push              : [optional] Push the Docker image
-
-      -h | --help         : Show this usage
-
-      END_USAGE
-
-          exit 1
-}
-
 # Docker login
 dockerLogin () {
       echo -e "\nDocker login"
@@ -75,42 +58,6 @@ buildProdDockerImage () {
       docker push ${DOCKER_REG}/${DOCKER_PROD_REPO}/${DOCKER_TAG}:latest || errorExit "Pushing ${DOCKER_REPO}:${DOCKER_TAG} failed"
 }
 
-
-processOptions () {
-    if [ $# -eq 0 ]; then
-        usage
-    fi
-
-    while [[ $# > 0 ]]; do
-        case "$1" in
-            --build)
-                BUILD="true"; shift
-            ;;
-            --push)
-                PUSH="true"; shift
-                
-            --registry)
-                DOCKER_REG=${2}; shift 2
-            ;;
-            --docker_usr)
-                DOCKER_USR=${2}; shift 2
-            ;;
-            --docker_psw)
-                DOCKER_PSW=${2}; shift 2
-            ;;
-            --tag)
-                DOCKER_TAG=${2}; shift 2  
-            ;;
-            -h | --help)
-                usage
-            ;;
-            *)
-                usage
-            ;;
-        esac
-    done
-}
-
 main () {
     echo -e "\nRunning"
 
@@ -122,18 +69,14 @@ main () {
     # Cleanup
 
     # Build and push docker images if needed
-    if [ "${BUILD}" == "true" ]; then
+   
         buildDockerImage
-    fi
-    if [ "${PUSH}" == "true" ]; then
-        # Attempt docker login
         dockerLogin
         pushDockerImage
-    fi
+    
 
 }
 
 ############## Main
 
-processOptions $*
 main
