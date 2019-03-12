@@ -1,21 +1,17 @@
 #!/bin/bash
 
 
-DOCKER_REG=${DOCKER_REG:-docker-repo:8081}
-DOCKER_USR=${DOCKER_USR:-admin}
-DOCKER_PSW=${DOCKER_PSW:-password}
-GRADLE_REPO=${GRADLE_REPO:-gradle-release}
-DOCKER_STAGE_REPO=${DOCKER_STAGE_REPO:-docker-stage-local}
-DOCKER_PROD_REPO=${DOCKER_PROD_REPO:-docker-prod-local}
-DOCKER_TAG={$DOCKER_TAG:-docker-framework}
+DOCKER_REG="docker-repo:8081"
+DOCKER_USR="admin"
+DOCKER_PSW="password"
+GRADLE_REPO="gradle-release"
+DOCKER_STAGE_REPO="docker-stage-local"
+DOCKER_PROD_REPO=$"docker-prod-local"
+DOCKER_TAG="$DOCKER_TAG:-docker-framework"
 WORKSPACE="/var/lib/jenkins/workspace/docker-framework/docker-framework"
-ARTFACTORY_URL=${ARTFACTORY_URL:-http://172.31.9.131:8081/artifactory}
-TOMCAT_REPO=${TOMCAT_REPO:-tomcat}
+ARTFACTORY_URL="http://172.31.9.131:8081/artifactory"
+TOMCAT_REPO="tomcat"
 
-errorExit () {
-      echo -e "\nERROR: $1"; echo
-      exit 1
-}
 
 # Docker login
 dockerLogin () {
